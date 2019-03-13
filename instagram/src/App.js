@@ -1,45 +1,39 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyles, { Container } from './App.GlobalSyles';
+import GlobalStyles, { Container, theme } from './App.GlobalSyles';
+import dummyData from './dummy-data';
 import HomePage from './pages/HomePage/HomePage';
 
-const blue = '#07c';
-const lightgray = '#f6f6ff';
-const black = '#111';
-const white = '#fafafa';
-
-const theme = {
-    fontSizes: [12, 14, 16, 24, 32, 48, 64],
-    colors: {
-        blue,
-        lightgray,
-        black,
-        white
-    },
-    buttons: {
-        primary: {
-            color: '#fff',
-            backgroundColor: blue
-        },
-        outline: {
-            color: blue,
-            backgroundColor: 'transparent',
-            boxShadow: 'inset 0 0 2px'
-        }
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
     }
-};
 
-const App = () => {
-    return (
-        <ThemeProvider theme={theme}>
-            <>
-                <GlobalStyles />
-                <Container>
-                    <HomePage />
-                </Container>
-            </>
-        </ThemeProvider>
-    );
-};
+    componentWillMount() {
+        this.handleData();
+    }
+
+    handleData = () => {
+        this.setState(prevState => {
+            return { data: [...prevState.data, ...dummyData] };
+        });
+    };
+
+    render() {
+        return (
+            <ThemeProvider theme={theme}>
+                <>
+                    <GlobalStyles />
+                    <Container>
+                        <HomePage data={this.state.data} />
+                    </Container>
+                </>
+            </ThemeProvider>
+        );
+    }
+}
 
 export default App;

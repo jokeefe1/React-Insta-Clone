@@ -1,9 +1,10 @@
 import React from 'react';
 import { Box, Card, Heading, Image, Text } from 'rebass';
 
-export default function PostContainer() {
+export default function PostContainer(props) {
+    const { username } = props.data[0];
     return (
-        <Box width={340} mx='auto'>
+        <Box width={340} mx="auto">
             <Card
                 p={1}
                 borderRadius={2}
@@ -11,7 +12,7 @@ export default function PostContainer() {
             >
                 <Image src={'https://picsum.photos/500'} />
                 <Box px={2}>
-                    <Heading as="h3">Card</Heading>
+                    <Heading as="h3">{username}</Heading>
                     <Text fontSize={0}>Small meta text</Text>
                 </Box>
             </Card>
