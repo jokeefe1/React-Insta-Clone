@@ -13,19 +13,19 @@ export const Flex = styled(BaseFlex)`
         align-items: center;
         div {
             height: 30px;
-            border-left: 1px solid ${({ theme }) => theme.black};
-            padding: 0 0.5rem;
-            margin-left: 1rem;
+            border-left: 2px solid ${({ theme }) => theme.colors.lightGrey};
+            margin: 0 0.5rem;
         }
     }
     img {
-        width: 40%;
-        height: 40%;
+        width: 8vmax;
     }
 
     input {
         width: 30%;
         height: 2rem;
+        border-radius: 2px;
+        border: 1px solid ${({theme}) => theme.colors.lightGrey};
     }
 
     div:last-child {

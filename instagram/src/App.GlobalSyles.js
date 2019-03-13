@@ -54,7 +54,7 @@ export default GlobalStyles;
 
 // Theme
 const blue = '#07c';
-const lightgray = '#f6f6ff';
+const lightGrey = '#c0c0c0';
 const black = '#111';
 const white = '#fafafa';
 
@@ -62,7 +62,7 @@ export const theme = {
 	fontSizes: [12, 14, 16, 24, 32, 48, 64],
 	colors: {
 		blue,
-		lightgray,
+		lightGrey,
 		black,
 		white
 	},
