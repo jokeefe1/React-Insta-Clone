@@ -1,3 +1,5 @@
+import React from 'react'
+import { Box } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -59,26 +61,38 @@ const black = '#111';
 const white = '#fafafa';
 
 export const theme = {
-	fontSizes: [12, 14, 16, 24, 32, 48, 64],
-	colors: {
-		blue,
-		lightGrey,
-		black,
-		white
-	},
-	buttons: {
-		primary: {
-			color: '#fff',
-			backgroundColor: blue
-		},
-		outline: {
-			color: blue,
-			backgroundColor: 'transparent',
-			boxShadow: 'inset 0 0 2px'
-		}
-	}
+    fontSizes: [12, 14, 16, 24, 32, 48, 64],
+    colors: {
+        blue,
+        lightGrey,
+        black,
+        white
+    },
+    buttons: {
+        primary: {
+            color: '#fff',
+            backgroundColor: blue
+        },
+        outline: {
+            color: blue,
+            backgroundColor: 'transparent',
+            boxShadow: 'inset 0 0 2px'
+        }
+    }
 };
 
+// Divider
+export const Divider = props => (
+    <Box
+        {...props}
+        as="hr"
+        bg="gray"
+        css={{
+            border: 0,
+            height: 1
+        }}
+    />
+);
 
 // Custon Styles
 export const Container = styled.div`
