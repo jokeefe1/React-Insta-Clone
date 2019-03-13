@@ -26,6 +26,7 @@ export const Flex = styled(BaseFlex)`
         height: 2rem;
         border-radius: 2px;
         border: 1px solid ${({theme}) => theme.colors.lightGrey};
+        text-align: center;
     }
 
     div:last-child {

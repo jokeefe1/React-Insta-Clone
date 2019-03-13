@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 import { Card, Flex, Image, Text } from 'rebass';
-import CommentSection from '../CommentSection/CommentSection';
-import { Box } from './PostContainer.styles';
 import { Divider } from '../../App.GlobalSyles';
+import CommentSection from '../CommentSection/CommentSection';
+import { Box, StyledInput } from './PostContainer.styles';
 
 export default function PostContainer(props) {
     const { data } = props;
@@ -31,17 +31,20 @@ export default function PostContainer(props) {
                         </Flex>
                     </Box>
                     <Image src={item.imageUrl} />
-                    <Box px={1}>
-                        <FaRegHeart />
-                        <FaRegComment />
-                        <Text fontSize={0}>{item.likes} likes</Text>
+                    <Box px={1} py={2}>
+                        <Flex justifyContent="space-between" width="7%" py={2}>
+                            <FaRegHeart />
+                            <FaRegComment />
+                        </Flex>
+                        <Text fontSize={0} fontWeight='bold' pb={2}>{item.likes} likes</Text>
                         <CommentSection comments={item.comments} />
                     </Box>
-                    <Divider color='lightGrey'/>
+                    <Divider color="lightGrey" />
                     <Box>
-                        <Text color='lightGrey'>
-                            Add a comment...
-                        </Text>
+                        <StyledInput
+                            type="text"
+                            placeholder="Add a comment..."
+                        />
                     </Box>
                 </Card>
             </Box>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Box } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
 

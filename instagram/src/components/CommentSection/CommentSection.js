@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React from 'react';
-import { Box, Flex, Text } from 'rebass';
+import { Flex, Text } from 'rebass';
+import { Box } from './CommentSection.styles'
 
 const nowTime = moment()
     .startOf('day')
@@ -12,8 +13,8 @@ export default function CommentSection(props) {
         return (
             <Flex key={comment.text}>
                     <Box  py={1}>
-                        <Text fontWeight="bold">{comment.username}</Text>
-                        <Text>{comment.text}</Text>
+                        <Text><span>{comment.username}</span>{comment.text}</Text>
+                        {/* <Text>{comment.text}</Text> */}
                     </Box>
                 </Flex>
         );
