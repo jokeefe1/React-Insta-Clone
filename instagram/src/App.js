@@ -1,8 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles, { Container } from './App.GlobalSyles';
-import PostContainer from './components/PostContainer/PostContainer';
-import SearchBar from './components/SearchBar/SearchBar';
+import HomePage from './pages/HomePage/HomePage';
 
 const blue = '#07c';
 const lightgray = '#f6f6ff';
@@ -36,8 +35,7 @@ const App = () => {
             <>
                 <GlobalStyles />
                 <Container>
-                    <SearchBar />
-                    <PostContainer />
+                    <HomePage />
                 </Container>
             </>
         </ThemeProvider>
