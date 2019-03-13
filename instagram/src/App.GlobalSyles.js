@@ -56,5 +56,5 @@ export default GlobalStyles;
 // Custon Styles
 export const Container = styled.div`
     width: 98%;
-    margin: auto;
+    margin: 0 auto;
 `;

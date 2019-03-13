@@ -3,7 +3,7 @@ import { Box, Card, Heading, Image, Text } from 'rebass';
 
 export default function PostContainer() {
     return (
-        <Box width={256}>
+        <Box width={340} mx='auto'>
             <Card
                 p={1}
                 borderRadius={2}
