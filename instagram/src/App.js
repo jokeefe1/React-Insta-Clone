@@ -34,15 +34,22 @@ class App extends React.Component {
     };
 
     handleUpdateComments = e => {
+        const index = Number(e.target.name) - 1;
         if (e.key === 'Enter') {
             this.setState(prevState => {
                 return {
-                    comments: [...prevState.comments, this.state.comment],
+                    comments: [
+                        ...prevState.comments[index],
+                        {
+                            text: this.state.comment,
+                            username: 'themexican_leprechaun'
+                        }
+                    ],
                     comment: ''
                 };
             });
         }
-        console.log(e);
+        console.log(index);
     };
 
     render() {

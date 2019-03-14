@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 export const Flex = styled(BaseFlex)`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.black};
-    padding: 1rem;
+    padding: 1rem 0;
     div:first-child {
         width: 33%;
         display: flex;
@@ -22,10 +22,10 @@ export const Flex = styled(BaseFlex)`
     }
 
     input {
-        width: 30%;
+        width: 33%;
         height: 2rem;
         border-radius: 2px;
-        border: 1px solid ${({theme}) => theme.colors.lightGrey};
+        border: 1px solid ${({ theme }) => theme.colors.lightGrey};
         text-align: center;
     }
 
@@ -35,7 +35,7 @@ export const Flex = styled(BaseFlex)`
         align-items: center;
         justify-content: flex-end;
         & > * {
-            padding: 0 0.5rem;
+            padding: 0 0.2rem;
         }
     }
 `;
