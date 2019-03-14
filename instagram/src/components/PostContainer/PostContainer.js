@@ -6,10 +6,10 @@ import CommentSection from '../CommentSection/CommentSection';
 import { Box, StyledInput } from './PostContainer.styles';
 
 export default function PostContainer(props) {
-    const { data } = props;
+    const { data, comment, handleAddComment, handleUpdateComments } = props;
     const displayData = data.map(item => {
         return (
-            <Box key={item.username} mx="auto" my="2rem">
+            <Box key={item.id} mx="auto" my="2rem">
                 <Card
                     p={1}
                     borderRadius={2}
@@ -43,6 +43,10 @@ export default function PostContainer(props) {
                     <Box>
                         <StyledInput
                             type="text"
+                            name={item.id}
+                            value={comment}
+                            onChange={handleAddComment}
+                            onKeyPress={handleUpdateComments}
                             placeholder="Add a comment..."
                         />
                     </Box>

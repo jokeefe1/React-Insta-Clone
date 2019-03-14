@@ -14,7 +14,6 @@ export default function CommentSection(props) {
             <Flex key={comment.text}>
                     <Box  py={1}>
                         <Text><span>{comment.username}</span>{comment.text}</Text>
-                        {/* <Text>{comment.text}</Text> */}
                     </Box>
                 </Flex>
         );

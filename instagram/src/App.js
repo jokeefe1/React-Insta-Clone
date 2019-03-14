@@ -8,7 +8,9 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            comment: '',
+            comments: []
         };
     }
 
@@ -18,8 +20,29 @@ class App extends React.Component {
 
     handleData = () => {
         this.setState(prevState => {
-            return { data: [...prevState.data, ...dummyData] };
+            const updatedComments = dummyData.map(item => item.comments);
+            return {
+                data: [...prevState.data, ...dummyData],
+                comments: [...prevState.comments, ...updatedComments]
+            };
         });
+    };
+
+    handleAddComment = e => {
+        const { value } = e.target;
+        this.setState({ comment: value });
+    };
+
+    handleUpdateComments = e => {
+        if (e.key === 'Enter') {
+            this.setState(prevState => {
+                return {
+                    comments: [...prevState.comments, this.state.comment],
+                    comment: ''
+                };
+            });
+        }
+        console.log(e);
     };
 
     render() {
@@ -28,7 +51,12 @@ class App extends React.Component {
                 <>
                     <GlobalStyles />
                     <Container>
-                        <HomePage data={this.state.data} />
+                        <HomePage
+                            data={this.state.data}
+                            comment={this.state.comment}
+                            handleAddComment={this.handleAddComment}
+                            handleUpdateComments={this.handleUpdateComments}
+                        />
                     </Container>
                 </>
             </ThemeProvider>
