@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 import { Card, Flex, Image, Text } from 'rebass';
@@ -36,7 +37,9 @@ export default function PostContainer(props) {
                             <FaRegHeart />
                             <FaRegComment />
                         </Flex>
-                        <Text fontSize={0} fontWeight='bold' pb={2}>{item.likes} likes</Text>
+                        <Text fontSize={0} fontWeight="bold" pb={2}>
+                            {item.likes} likes
+                        </Text>
                         <CommentSection comments={item.comments} />
                     </Box>
                     <Divider color="lightGrey" />
@@ -56,3 +59,18 @@ export default function PostContainer(props) {
     });
     return <div>{displayData}</div>;
 }
+
+PostContainer.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number,
+            thumbnailUrl: PropTypes.string,
+            username: PropTypes.string,
+            imageUrl: PropTypes.string,
+            likes: PropTypes.number,
+            comments: PropTypes.array,
+            handleAddComment: PropTypes.func,
+            handleUpdateComments: PropTypes.func
+        })
+    )
+};
