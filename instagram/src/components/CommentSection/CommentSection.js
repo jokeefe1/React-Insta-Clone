@@ -18,16 +18,6 @@ export default function CommentSection(props) {
                         {comment.comments.map( item => item.text )}
                     </Text>
                 </Box>
-                <Box>
-                    <StyledInput
-                        type="text"
-                        name="comment"
-                        value={comment}
-                        onChange={props.handleChange}
-                        onKeyPress={props.handleUpdateComments}
-                        placeholder="Add a comment..."
-                    />
-                </Box>
             </Flex>
         );
     });
