@@ -4,7 +4,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import PropTypes from 'prop-types'
 
 export default function HomePage(props) {
-    const { data, comment, handleChange, handleUpdateComments } = props;
+    const { data, comment, handleChange, handleUpdateComments, handleHeartClick } = props;
     return (
         <>
             <SearchBar />
@@ -13,6 +13,7 @@ export default function HomePage(props) {
                 comment={comment}
                 handleChange={handleChange}
                 handleUpdateComments={handleUpdateComments}
+                handleHeartClick={handleHeartClick}
             />
         </>
     );

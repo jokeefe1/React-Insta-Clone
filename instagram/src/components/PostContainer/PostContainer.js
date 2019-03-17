@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { FaRegComment, FaRegHeart } from 'react-icons/fa';
+import { FaRegComment } from 'react-icons/fa';
 import { Card, Flex, Image, Text } from 'rebass';
 import { Divider } from '../../App.GlobalSyles';
 import CommentSection from '../CommentSection/CommentSection';
-import { Box, StyledInput } from './PostContainer.styles';
+import { Box, FaRegHeart, StyledInput } from './PostContainer.styles';
 
 export default function PostContainer(props) {
-    const { data, comment, handleChange, handleUpdateComments } = props;
+    const { data, comment, handleChange, handleUpdateComments, handleHeartClick } = props;
     const displayData = data.map(item => {
         return (
             <Box key={item.id} mx="auto" my="2rem">
@@ -34,15 +34,13 @@ export default function PostContainer(props) {
                     <Image src={item.imageUrl} />
                     <Box px={1} py={2}>
                         <Flex justifyContent="space-between" width="7%" py={2}>
-                            <FaRegHeart />
+                            <FaRegHeart onClick={handleHeartClick}/>
                             <FaRegComment />
                         </Flex>
                         <Text fontSize={0} fontWeight="bold" pb={2}>
                             {item.likes} likes
                         </Text>
-                        <CommentSection
-                            comments={data}
-                        />
+                        <CommentSection comments={data} />
                     </Box>
                     <Divider color="lightGrey" />
                     <Box>

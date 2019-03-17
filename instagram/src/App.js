@@ -9,7 +9,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             data: dummyData,
-            comment: ''
+            comment: '',
+            comments: dummyData.comments
         };
     }
 
@@ -19,17 +20,25 @@ class App extends React.Component {
     };
 
     handleUpdateComments = e => {
-        console.log(e.target)
-        if (e.key === 'Enter') {
-            const newComment = this.state.comment;
-            const updatedComments = {
-                username: 'martinseludo',
-                text: newComment
-            };
-            this.setState(prevState => ({
-                data: [prevState.data, updatedComments]
-            }));
-        }
+        // console.log(e.target);
+        // if (e.key === 'Enter') {
+        //     const newComment = this.state.comment;
+        //     const updatedComments = {
+        //         username: 'martinseludo',
+        //         text: newComment
+        //     };
+        //     this.setState(prevState => ({
+        //         data: [prevState.data, updatedComments]
+        //     }));
+        // }
+    };
+
+    handleHeartClick = () => {
+        this.setState(prevState => {
+            return {
+                data: prevState.likes + 1
+            }
+        })
     };
 
     render() {
@@ -43,6 +52,7 @@ class App extends React.Component {
                             comment={this.state.comment}
                             handleChange={this.handleChange}
                             handleUpdateComments={this.handleUpdateComments}
+                            handleHeartClick={this.handleHeartClick}
                         />
                     </Container>
                 </>

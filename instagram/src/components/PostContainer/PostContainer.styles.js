@@ -1,8 +1,12 @@
 import styled from 'styled-components'
-import { Flex as BaseFlex, Box as BaseBox } from 'rebass' 
+import { Flex as BaseFlex, Box as BaseBox } from 'rebass'
+import { FaRegHeart as BaseHeart } from 'react-icons/fa'
 
 export const Flex = styled(BaseFlex)`
     display: flex;
+`
+export const FaRegHeart = styled(BaseHeart)`
+    cursor: pointer;
 `
 
 export const Box = styled(BaseBox)`
