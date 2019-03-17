@@ -8,48 +8,28 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            comment: '',
-            comments: []
+            data: dummyData,
+            comment: ''
         };
     }
 
-    componentWillMount() {
-        this.handleData();
-    }
-
-    handleData = () => {
-        this.setState(prevState => {
-            const updatedComments = dummyData.map(item => item.comments);
-            return {
-                data: [...prevState.data, ...dummyData],
-                comments: [...prevState.comments, ...updatedComments]
-            };
-        });
-    };
-
-    handleAddComment = e => {
-        const { value } = e.target;
-        this.setState({ comment: value });
+    handleChange = e => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
     };
 
     handleUpdateComments = e => {
-        const index = Number(e.target.name) - 1;
+        console.log(e.target)
         if (e.key === 'Enter') {
-            this.setState(prevState => {
-                return {
-                    comments: [
-                        ...prevState.comments[index],
-                        {
-                            text: this.state.comment,
-                            username: 'themexican_leprechaun'
-                        }
-                    ],
-                    comment: ''
-                };
-            });
+            const newComment = this.state.comment;
+            const updatedComments = {
+                username: 'martinseludo',
+                text: newComment
+            };
+            this.setState(prevState => ({
+                data: [prevState.data, updatedComments]
+            }));
         }
-        console.log(index);
     };
 
     render() {
@@ -61,7 +41,7 @@ class App extends React.Component {
                         <HomePage
                             data={this.state.data}
                             comment={this.state.comment}
-                            handleAddComment={this.handleAddComment}
+                            handleChange={this.handleChange}
                             handleUpdateComments={this.handleUpdateComments}
                         />
                     </Container>

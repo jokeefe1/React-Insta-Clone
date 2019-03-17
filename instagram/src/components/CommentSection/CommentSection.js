@@ -1,28 +1,40 @@
-import moment from 'moment';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Flex, Text } from 'rebass';
-import { Box } from './CommentSection.styles'
-import PropTypes from 'prop-types'
+import { Box, StyledInput } from './CommentSection.styles';
 
-const nowTime = moment()
-    .startOf('day')
-    .fromNow();
+// const nowTime = moment()
+//     .startOf('day')
+//     .fromNow();
 
 export default function CommentSection(props) {
-    const { comments } = props;
-    const displayComment = comments.map(comment => {
+    console.log(props.comments)
+    const displayComment = props.comments.map(comment => {
         return (
-            <Flex key={comment.text}>
-                    <Box  py={1}>
-                        <Text><span>{comment.username}</span>{comment.text}</Text>
-                    </Box>
-                </Flex>
+            <Flex key={comment.id}>
+                <Box py={1}>
+                    <Text>
+                        <span>{comment.username}</span>
+                        {comment.comments.map( item => item.text )}
+                    </Text>
+                </Box>
+                <Box>
+                    <StyledInput
+                        type="text"
+                        name="comment"
+                        value={comment}
+                        onChange={props.handleChange}
+                        onKeyPress={props.handleUpdateComments}
+                        placeholder="Add a comment..."
+                    />
+                </Box>
+            </Flex>
         );
     });
     return (
         <>
             {displayComment}
-            {nowTime}
+            {/* {nowTime} */}
         </>
     );
 }
@@ -32,4 +44,4 @@ CommentSection.propTypes = {
         text: PropTypes.string,
         username: PropTypes.string
     })
-}
+};
