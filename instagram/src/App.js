@@ -1,8 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles, { Container, theme } from './App.GlobalSyles';
+import PostContainer from './components/PostContainer/PostContainer';
+import SearchBar from './components/SearchBar/SearchBar';
 import dummyData from './dummy-data';
-import HomePage from './pages/HomePage/HomePage';
 
 class App extends React.Component {
     constructor(props) {
@@ -10,9 +11,24 @@ class App extends React.Component {
         this.state = {
             data: dummyData,
             comment: '',
-            comments: dummyData.comments
+            comments: []
         };
     }
+
+    componentDidMount = () => {
+        this.loadComments();
+    };
+
+    loadComments = () => {
+        const comments = this.state.data.map( item => {
+            return item.comments
+        })
+        this.setState( prevState => {
+            return {
+                comments: [ ...prevState.comments, ...comments ]
+            }
+        })
+    };
 
     handleChange = e => {
         const { name, value } = e.target;
@@ -20,25 +36,21 @@ class App extends React.Component {
     };
 
     handleUpdateComments = e => {
-        // console.log(e.target);
-        // if (e.key === 'Enter') {
-        //     const newComment = this.state.comment;
-        //     const updatedComments = {
-        //         username: 'martinseludo',
-        //         text: newComment
-        //     };
-        //     this.setState(prevState => ({
-        //         data: [prevState.data, updatedComments]
-        //     }));
-        // }
+        if (e.key === 'Enter') {
+            const newComment = this.state.comment;
+            const updatedComments = {
+                username: 'martinseludo',
+                text: newComment
+            };
+            this.setState(prevState => ({
+                comments: [...prevState.comments, updatedComments],
+                comment: ''
+            }));
+        }
     };
 
     handleHeartClick = () => {
-        this.setState(prevState => {
-            return {
-                data: prevState.likes + 1
-            }
-        })
+        this.setState({ data: this.state.data.likes + 1 });
     };
 
     render() {
@@ -47,8 +59,10 @@ class App extends React.Component {
                 <>
                     <GlobalStyles />
                     <Container>
-                        <HomePage
+                        <SearchBar />
+                        <PostContainer
                             data={this.state.data}
+                            comments={this.state.comments}
                             comment={this.state.comment}
                             handleChange={this.handleChange}
                             handleUpdateComments={this.handleUpdateComments}

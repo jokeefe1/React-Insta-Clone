@@ -7,7 +7,7 @@ import CommentSection from '../CommentSection/CommentSection';
 import { Box, FaRegHeart, StyledInput } from './PostContainer.styles';
 
 export default function PostContainer(props) {
-    const { data, comment, handleChange, handleUpdateComments, handleHeartClick } = props;
+    const { data, comment, comments, handleChange, handleUpdateComments, handleHeartClick } = props;
     const displayData = data.map(item => {
         return (
             <Box key={item.id} mx="auto" my="2rem">
@@ -40,7 +40,7 @@ export default function PostContainer(props) {
                         <Text fontSize={0} fontWeight="bold" pb={2}>
                             {item.likes} likes
                         </Text>
-                        <CommentSection comments={data} />
+                        <CommentSection comments={comments} />
                     </Box>
                     <Divider color="lightGrey" />
                     <Box>
