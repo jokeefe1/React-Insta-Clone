@@ -5,7 +5,7 @@ import logo from '../../img/logo.png';
 import { Flex } from './SearchBar.styles';
 
 
-export default function SearchBar() {
+export default function SearchBar(props) {
     return (
         <Flex px={2} color="white" bg="black" alignItems="center">
             <div>
@@ -14,7 +14,7 @@ export default function SearchBar() {
                 <img src={logo} alt="logo" />
             </div>
 
-            <input type="text" placeholder='Search' />
+            <input type="text" placeholder='Search' value={props.filterTarget} onChange={props.changeHandler} name="filterTarget"/>
             <div>
                 <FaRegCompass size={20} />
                 <FaRegHeart size={20} />

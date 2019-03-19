@@ -1,17 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Images, Thumbnail, Username, Top } from "../../Styles"
+import React from 'react';
 
 const Post = props => {
     return (
-        <Images>
-            <Top>
-                <Thumbnail src={props.thumbnail}></Thumbnail>
-                <Username>{props.username}</Username>
-            </Top>
-            <img src={props.image} />
-        </Images>
-    )
-}
+        <div>
+            <div>
+                <img src={props.thumbnail} alt="thumbnail" />
+                <div>{props.username}</div>
+            </div>
+            <img src={props.image} alt="post" />
+        </div>
+    );
+};
 
 export default Post;

@@ -1,14 +1,6 @@
-import React from "react";
-import { MyIcons, IconsSmall } from '../../Styles'
+import React from 'react';
 const Icons = props => {
-    return (
-        <MyIcons>
-            <IconsSmall>
-                <i className="far fa-heart fa-2x" onClick={props.increment}></i>
-                <i className="far fa-comment fa-2x"></i>
-            </IconsSmall>
-        </MyIcons>
-    )
-}
+    return <div />;
+};
 
 export default Icons;

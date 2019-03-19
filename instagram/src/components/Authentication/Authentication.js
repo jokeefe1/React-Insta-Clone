@@ -1,5 +1,5 @@
-import React from "react";
-import Login from "../Login/Login"
+import React from 'react';
+import Login from '../Login/Login';
 
 const Authenticate = App =>
     class extends React.Component {
@@ -7,21 +7,19 @@ const Authenticate = App =>
             super();
             this.state = {
                 loggedIn: false
-            }
+            };
         }
 
         componentDidMount() {
             if (!localStorage.getItem('user')) {
-                this.setState({ loggedIn: false })
+                this.setState({ loggedIn: false });
             } else {
-                this.setState({ loggedIn: true })
+                this.setState({ loggedIn: true });
             }
         }
         render() {
-            if (this.state.loggedIn) return <App />
-            return <Login />
-
+            return <>{this.state.loggedIn ? <App /> : <Login />}</>;
         }
-    }
+    };
 
 export default Authenticate;

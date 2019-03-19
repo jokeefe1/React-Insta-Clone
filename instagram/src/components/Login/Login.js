@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -19,16 +20,15 @@ class Login extends Component {
 
     render() {
         return (
-            <form className="login-form">
+            <form>
                 <div>
-                    <h2 className="welcome">Welcome, Please Login</h2>
+                    <h2>Welcome, Please Login</h2>
                     <input
                         type="text"
                         placeholder="Username"
                         name="username"
                         value={this.state.username}
                         onChange={this.handleInputChange}
-                        className="form-boxes"
                     />
 
                     <input
@@ -37,9 +37,8 @@ class Login extends Component {
                         name="password"
                         value={this.state.password}
                         onChange={this.handleInputChange}
-                        className="form-boxes"
                     />
-                    <button onClick={this.handleLoginSubmit} className="login-button">Login</button>
+                    <button onClick={this.handleLoginSubmit}>Login</button>
                 </div>
             </form>
         );

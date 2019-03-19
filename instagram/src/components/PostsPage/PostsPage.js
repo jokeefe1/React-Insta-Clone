@@ -1,8 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { theme } from '../../App.GlobalSyles';
 import dummyData from '../../dummy-data';
 import PostContainer from '../PostContainer/PostContainer';
 import SearchBar from '../SearchBar/SearchBar';
+import { Container } from '../../App.GlobalSyles'
+
 class PostsPage extends React.Component {
     constructor() {
         super();
@@ -27,19 +30,18 @@ class PostsPage extends React.Component {
     };
 
     filter = event => {
-        this.handleInput(event); // SET STATE CALL HERE DETERMINES this.state.filterTarget go off and do this, and finish when you can
+        this.handleInput(event);
         this.setState(prevState => {
             const filteredPosts = prevState.posts.filter(post => {
                 return post.username.includes(prevState.filterTarget);
             });
-            return { filteredPosts: filteredPosts };
-            // this could be just { filteredPosts }
+            return { filteredPosts };
         });
     };
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <div className="App">
+                <Container>
                     <SearchBar
                         changeHandler={this.filter}
                         filterTarget={this.state.filterTarget}
@@ -53,7 +55,7 @@ class PostsPage extends React.Component {
                         likes={this.state.likes}
                         increment={this.increment}
                     />
-                </div>
+                </Container>
             </ThemeProvider>
         );
     }

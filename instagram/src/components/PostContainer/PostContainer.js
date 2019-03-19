@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Container } from '../../App.GlobalSyles';
 import CommentSection from '../CommentSection/CommentSection';
 import Icons from '../Icons/Icons';
 import Post from '../Post/Post';
-import { CommentContainer, StyledP, Time } from '../../Styles';
 
 const PostContainer = props => {
     if (!props.data.length) {
@@ -11,7 +11,7 @@ const PostContainer = props => {
     }
 
     return (
-        <div>
+        <Container>
             <div>
                 {props.data.map((data, index) => {
                     return (
@@ -22,16 +22,16 @@ const PostContainer = props => {
                                 username={data.username}
                             />
                             <Icons increment={props.increment} />
-                            <StyledP>{props.likes} likes</StyledP>
-                            <CommentContainer>
+                            <div>{props.likes} likes</div>
+                            <div>
                                 <CommentSection comments={data.comments} />
-                            </CommentContainer>
-                            <Time>2 HOURS AGO</Time>
+                            </div>
+                            <div>2 HOURS AGO</div>
                         </div>
                     );
                 })}
             </div>
-        </div>
+        </Container>
     );
 };
 

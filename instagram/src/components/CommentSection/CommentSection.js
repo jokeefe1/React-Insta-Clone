@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Comment from '../Comment/Comment';
 import Input from '../Input/Input';
+
 class CommentSection extends React.Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,6 @@ class CommentSection extends React.Component {
             user: '',
             text: ''
         };
-        console.log(props);
     }
 
     componentDidMount() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Authenticate from './components/Authentication/Authentication'
-import PostsPage from './components/PostsPage/PostsPage'
+import Authenticate from './components/Authentication/Authentication';
+import PostsPage from './components/PostsPage/PostsPage';
 
 const higherOrderComponent = WrappedComponent =>
     class extends React.Component {
@@ -11,7 +11,7 @@ const higherOrderComponent = WrappedComponent =>
 
         render() {
             return (
-                <div className="container">
+                <div>
                     <WrappedComponent />
                 </div>
             );
