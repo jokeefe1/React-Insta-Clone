@@ -1,46 +1,51 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { Container } from '../../App.GlobalSyles';
+import { StyledForm } from './Login.styles';
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            password: ""
+            username: '',
+            password: ''
         };
     }
     handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        const { name, value } = e.target
+        this.setState({ [name]: value });
     };
 
     handleLoginSubmit = e => {
         const user = this.state.username;
-        localStorage.setItem("user", user);
+        localStorage.setItem('user', user);
         window.location.reload();
     };
 
     render() {
         return (
-            <form>
-                <div>
-                    <h2>Welcome, Please Login</h2>
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        name="username"
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                    />
+            <Container>
+                <StyledForm>
+                    <div>
+                        <h2>Please Login</h2>
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            name="username"
+                            value={this.state.username}
+                            onChange={this.handleInputChange}
+                        />
 
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                    />
-                    <button onClick={this.handleLoginSubmit}>Login</button>
-                </div>
-            </form>
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.handleInputChange}
+                        />
+                        <button onClick={this.handleLoginSubmit}>Login</button>
+                    </div>
+                </StyledForm>
+            </Container>
         );
     }
 }

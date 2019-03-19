@@ -44,6 +44,7 @@ class PostsPage extends React.Component {
                     <SearchBar
                         changeHandler={this.filter}
                         filterTarget={this.state.filterTarget}
+                        handleLogout={this.props.handleLogout}
                     />
                     <Container>
                         <PostContainer

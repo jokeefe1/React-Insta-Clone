@@ -18,7 +18,7 @@ export default function SearchBar(props) {
             <div>
                 <FaRegCompass size={20} />
                 <FaRegHeart size={20} />
-                <FiUser size={20} />
+                <FiUser size={20} onClick={props.handleLogout}/>
             </div>
         </Flex>
     );

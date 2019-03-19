@@ -17,8 +17,13 @@ const Authenticate = App =>
                 this.setState({ loggedIn: true });
             }
         }
+
+        handleLogout = () => {
+            this.setState({ loggedIn: !this.state.loggedIn })
+        }
+
         render() {
-            return <>{this.state.loggedIn ? <App /> : <Login />}</>;
+            return <>{this.state.loggedIn ? <App handleLogout={this.handleLogout} /> : <Login />}</>;
         }
     };
 
