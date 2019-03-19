@@ -20,3 +20,6 @@ export const StyledInput = styled.input`
     padding-left: 0.5rem;
     outline: white;
 `
+export const StyledDiv = styled.div`
+    padding-bottom: 2rem;
+`

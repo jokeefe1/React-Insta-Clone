@@ -1,41 +1,40 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../../App.GlobalSyles';
+import { Container, theme } from '../../App.GlobalSyles';
 import dummyData from '../../dummy-data';
 import PostContainer from '../PostContainer/PostContainer';
 import SearchBar from '../SearchBar/SearchBar';
-import { Container } from '../../App.GlobalSyles'
 
 class PostsPage extends React.Component {
     constructor() {
         super();
         this.state = {
             posts: [],
-            likes: 370,
             filteredPosts: [],
-            filterTarget: ''
+            filterTarget: '',
+            likes: 310
         };
     }
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({ posts: dummyData });
-        }, 500);
+        this.setState({ posts: dummyData });
     }
+
     increment = prevState => {
         this.setState(prevState => ({ likes: prevState.likes + 1 }));
     };
 
-    handleInput = event => {
-        this.setState({ [event.target.name]: event.target.value });
+    handleInput = e => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
     };
 
-    filter = event => {
-        this.handleInput(event);
+    filter = e => {
+        this.handleInput(e);
         this.setState(prevState => {
             const filteredPosts = prevState.posts.filter(post => {
                 return post.username.includes(prevState.filterTarget);
             });
-            return { filteredPosts };
+            return { filteredPosts, filterTarget: '' };
         });
     };
     render() {

@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { FaRegHeart } from 'react-icons/fa';
+import { FiMessageCircle } from 'react-icons/fi';
 import { Container } from '../../App.GlobalSyles';
 import CommentSection from '../CommentSection/CommentSection';
-import Icons from '../Icons/Icons';
 import Post from '../Post/Post';
+import { StyledDiv } from './PostContainer.styles';
 
 const PostContainer = props => {
     if (!props.data.length) {
@@ -12,25 +14,26 @@ const PostContainer = props => {
 
     return (
         <Container>
-            <div>
-                {props.data.map((data, index) => {
-                    return (
-                        <div key={data.timestamp}>
-                            <Post
-                                thumbnail={data.thumbnailUrl}
-                                image={data.imageUrl}
-                                username={data.username}
-                            />
-                            <Icons increment={props.increment} />
+            {props.data.map((data, index) => {
+                return (
+                    <StyledDiv key={data.timestamp}>
+                        <Post
+                            thumbnail={data.thumbnailUrl}
+                            image={data.imageUrl}
+                            username={data.username}
+                        />
+                        <div>
+                            <FaRegHeart onClick={props.increment} id={data.id}/>
+                            <FiMessageCircle />
                             <div>{props.likes} likes</div>
-                            <div>
-                                <CommentSection comments={data.comments} />
-                            </div>
-                            <div>2 HOURS AGO</div>
                         </div>
-                    );
-                })}
-            </div>
+                        <div>
+                            <CommentSection comments={data.comments} />
+                        </div>
+                        <div>2 HOURS AGO</div>
+                    </StyledDiv>
+                );
+            })}
         </Container>
     );
 };
