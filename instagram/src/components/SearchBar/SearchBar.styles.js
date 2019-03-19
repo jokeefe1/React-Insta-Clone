@@ -36,6 +36,7 @@ export const Flex = styled(BaseFlex)`
         justify-content: flex-end;
         & > * {
             padding: 0 0.2rem;
+            cursor: pointer;
         }
     }
 `;

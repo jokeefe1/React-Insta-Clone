@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { FaRegHeart } from 'react-icons/fa';
 import { FiMessageCircle } from 'react-icons/fi';
 import { Container } from '../../App.GlobalSyles';
 import CommentSection from '../CommentSection/CommentSection';
 import Post from '../Post/Post';
-import { StyledDiv } from './PostContainer.styles';
+import { FaRegHeart, StyledDiv } from './PostContainer.styles';
 
 const PostContainer = props => {
     if (!props.data.length) {
@@ -23,7 +22,10 @@ const PostContainer = props => {
                             username={data.username}
                         />
                         <div>
-                            <FaRegHeart onClick={props.increment} id={data.id}/>
+                            <FaRegHeart
+                                onClick={props.increment}
+                                id={data.id}
+                            />
                             <FiMessageCircle />
                             <div>{props.likes} likes</div>
                         </div>
