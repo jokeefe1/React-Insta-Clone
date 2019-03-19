@@ -34,27 +34,29 @@ class PostsPage extends React.Component {
             const filteredPosts = prevState.posts.filter(post => {
                 return post.username.includes(prevState.filterTarget);
             });
-            return { filteredPosts, filterTarget: '' };
+            return { filteredPosts };
         });
     };
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <Container>
+                <>
                     <SearchBar
                         changeHandler={this.filter}
                         filterTarget={this.state.filterTarget}
                     />
-                    <PostContainer
-                        data={
-                            this.state.filteredPosts.length > 0
-                                ? this.state.filteredPosts
-                                : this.state.posts
-                        }
-                        likes={this.state.likes}
-                        increment={this.increment}
-                    />
-                </Container>
+                    <Container>
+                        <PostContainer
+                            data={
+                                this.state.filteredPosts.length > 0
+                                    ? this.state.filteredPosts
+                                    : this.state.posts
+                            }
+                            likes={this.state.likes}
+                            increment={this.increment}
+                        />
+                    </Container>
+                </>
             </ThemeProvider>
         );
     }

@@ -14,9 +14,7 @@ class CommentSection extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({ comments: this.state.comments });
-        }, 2000);
+        this.setState({ comments: this.state.comments });
     }
 
     addNewComment = (e, index) => {
@@ -26,7 +24,7 @@ class CommentSection extends React.Component {
             username: localStorage.getItem('user'),
             text: this.state.text
         });
-        this.setState({ comments: comments, text: '' });
+        this.setState({ comments, text: '' });
     };
     changeComment = e => {
         e.preventDefault();
@@ -39,6 +37,7 @@ class CommentSection extends React.Component {
                 {this.state.comments.map((comment, index) => {
                     return <Comment comment={comment} key={index} />;
                 })}
+                <span>17 HOURS AGO</span>
                 <Input
                     add={this.addNewComment}
                     change={this.changeComment}

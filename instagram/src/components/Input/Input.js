@@ -1,11 +1,14 @@
 import React from "react";
+import { StyledInput } from "./Input.styled";
+import { Divider } from '../../App.GlobalSyles'
 
 const Input = props => {
     return (
         <form onSubmit={props.add}>
             <div>
                 <div>
-                    <input type="text" placeholder="Add a comment ..." name="user" onChange={props.change} value={props.value} />
+                    <Divider />
+                    <StyledInput type="text" placeholder="Add a comment ..." name="user" onChange={props.change} value={props.value} />
                 </div>
             </div>
         </form>

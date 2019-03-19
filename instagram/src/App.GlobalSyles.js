@@ -97,5 +97,6 @@ export const Divider = props => (
 // Custon Styles
 export const Container = styled.div`
     width: 98%;
+    max-width: 800px;
     margin: 0 auto;
 `;

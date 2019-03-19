@@ -7,11 +7,3 @@ export const Box = styled(BaseBox)`
         padding-right: 0.3rem;
     }
 `;
-export const StyledInput = styled.input`
-    color: lightgrey;
-    width: 100%;
-    border: none;
-    padding-bottom: 1rem;
-    padding-left: 0.5rem;
-    outline: white;
-`;

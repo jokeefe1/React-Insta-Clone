@@ -19,6 +19,6 @@ export const StyledDiv = styled.div`
     }
     img {
         width: 100%;
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
     }
 `;

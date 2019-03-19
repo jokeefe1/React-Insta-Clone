@@ -30,7 +30,6 @@ const PostContainer = props => {
                         <div>
                             <CommentSection comments={data.comments} />
                         </div>
-                        <div>2 HOURS AGO</div>
                     </StyledDiv>
                 );
             })}

@@ -22,4 +22,8 @@ export const StyledInput = styled.input`
 `
 export const StyledDiv = styled.div`
     padding-bottom: 2rem;
+    span {
+        color: ${({theme}) => theme.colors.lightGrey};
+        font-size: 0.8rem;
+    }
 `
